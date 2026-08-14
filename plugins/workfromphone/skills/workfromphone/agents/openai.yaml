@@ -1,0 +1,4 @@
+interface:
+  display_name: "Work From Phone"
+  short_description: "Phone-first, compact-safe remote Codex work"
+  default_prompt: "Use $workfromphone to complete this task while I am away from my computer."

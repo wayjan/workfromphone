@@ -1,0 +1,40 @@
+{
+  "name": "workfromphone",
+  "version": "1.0.0",
+  "description": "Phone-first operating mode for completing Codex work while away from the computer.",
+  "author": {
+    "name": "wayjan",
+    "email": "246898204+wayjan@users.noreply.github.com",
+    "url": "https://github.com/wayjan"
+  },
+  "homepage": "https://github.com/wayjan/workfromphone#readme",
+  "repository": "https://github.com/wayjan/workfromphone",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "mobile",
+    "phone",
+    "remote-work",
+    "onedrive"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Work From Phone",
+    "shortDescription": "Finish Codex work remotely from your phone.",
+    "longDescription": "Keep Codex tasks usable when your phone is the only interface. Codex handles workstation actions autonomously, avoids assigning desktop chores, delivers files and images through mobile-reachable channels, keeps image batches compact-safe, and preserves continuity through long sessions.",
+    "developerName": "wayjan",
+    "category": "Productivity",
+    "capabilities": [],
+    "websiteURL": "https://github.com/wayjan/workfromphone",
+    "privacyPolicyURL": "https://github.com/wayjan/workfromphone/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/wayjan/workfromphone/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Use $workfromphone to finish this task while I am away from my computer.",
+      "Use $workfromphone and deliver every output in a phone-friendly format.",
+      "Use $workfromphone to continue autonomously with compact progress updates."
+    ],
+    "brandColor": "#0B7285",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

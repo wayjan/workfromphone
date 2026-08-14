@@ -1,0 +1,20 @@
+{
+  "name": "workfromphone",
+  "interface": {
+    "displayName": "Work From Phone"
+  },
+  "plugins": [
+    {
+      "name": "workfromphone",
+      "source": {
+        "source": "local",
+        "path": "./plugins/workfromphone"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
