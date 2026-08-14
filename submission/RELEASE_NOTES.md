@@ -1,5 +1,9 @@
 # Release notes
 
+## Version 1.1.0
+
+Adds interruption and latency resilience for remote sessions: privacy-safe task checkpoints, recovery from uncertain tool results, bounded status retries, duplicate prevention for uploads and publishing, compact transfers, real background-job tracking, and phone-only fallbacks when the connected host is unavailable.
+
 ## Version 1.0.0
 
 Initial public submission of Work From Phone, a skills-only plugin for phone-first Codex work.

@@ -1,6 +1,6 @@
 ---
 name: workfromphone
-description: "Phone-first operating mode for completing Codex work while the user is remote, on a phone, away from the workstation, unable to access the computer, or explicitly invokes $workfromphone. Keep the entire workflow usable from mobile chat: act autonomously on the computer, never assign desktop actions to the user, deliver files and pictures through chat or a connected cloud service such as OneDrive, keep image batches and context compact-safe, provide phone-reachable previews and links, minimize typing and decisions, and preserve continuity through long or compacted sessions."
+description: "Phone-first operating mode for completing Codex work while the user is remote, on a phone, away from the workstation, unable to access the computer, or explicitly invokes $workfromphone. Keep the entire workflow usable from mobile chat: act autonomously on the computer, never assign desktop actions to the user, deliver files and pictures through chat or a connected cloud service such as OneDrive, keep image batches and context compact-safe, provide phone-reachable previews and links, minimize typing and decisions, and recover safely from long sessions, compaction, disconnections, timeouts, and high latency."
 ---
 
 # Work From Phone
@@ -29,6 +29,23 @@ If completion truly depends on an unavailable desktop-only action, do not turn t
 5. Lead the handoff with the outcome, what is ready to tap or download, and any genuinely required phone action.
 
 Do not claim that work will continue in the background unless a real monitoring or background mechanism has been started.
+
+## Survive disconnections and high latency
+
+- Do not claim to prevent network loss or improve raw connection speed. Reduce the cost of interruptions and the amount of data transferred.
+- Before a long or fragile step, update a concise checkpoint with the objective, completed outputs, last verified state, live job or process identifiers and log locations, artifact links, and exact next incomplete step. Keep checkpoints out of tracked or public files by default, and never put secrets, private account identifiers, or private share URLs in them.
+- Use a real background job or monitor when work must continue without an active chat connection, and record its identifier and status. Keep each wait or poll below 60 seconds.
+- After a reconnect, timeout, or uncertain tool result:
+  1. Treat the prior action as possibly complete.
+  2. Inspect the checkpoint and authoritative state, including jobs, logs, Git state, files, cloud receipts, and remote targets as applicable.
+  3. Reconcile what completed and resume at the first incomplete step.
+  4. Do not repeat completed actions or ask the user to repeat recoverable information.
+- Retry idempotent reads and status checks up to three times with short, bounded backoff. Before retrying a write, upload, send, publish, or deploy, inspect the destination and reuse an idempotency key when supported.
+- Never blindly retry a payment, purchase, external message or submission, or destructive action after an uncertain result. Verify the destination first; if the result remains unknowable and a retry could duplicate, charge, overwrite, or delete, ask one concise phone-tappable confirmation.
+- Prefer atomic artifact creation, preserve completed outputs, and checksum important archives or uploads when useful. Do not re-download, re-render, or re-upload unchanged outputs.
+- Parallelize independent safe checks, reuse verified results, compress large deliveries, and send small previews. When `/fast` is available and latency is the user's priority, offer it once as a phone-tappable choice with any quality or cost tradeoff; never switch silently.
+- Recognize that remote execution depends on the required host staying awake, online, and connected. Never assign power-setting work to a user who is already remote. If the host is unreachable, preserve state and offer only phone-doable retry, notification, cloud, or partial-result alternatives. Use a temporary keep-awake mechanism only when explicitly authorized; never change permanent power settings silently.
+- For multi-turn work, offer a durable goal or completion notification when available, but create a goal only when the user explicitly requests it.
 
 ## Deliver images without forcing compaction
 
@@ -69,7 +86,7 @@ Choose mobile-friendly outputs by default:
 - Avoid wide tables, large code blocks, raw logs, verbose tool output, repeated context, and unnecessary screenshots.
 - For code changes, use the native diff or review surface when available. Summarize changed areas, verification, and remaining risk instead of pasting a full patch into chat.
 - Save lengthy diagnostics or reports as an artifact and summarize only the decision-relevant points in chat.
-- Maintain a concise plan or checkpoint containing the objective, important decisions, completed outputs, verification status, and next action during multi-stage work.
+- Keep the resilience checkpoint current during multi-stage work, especially before media batches, uploads, publishes, deployments, or long-running commands.
 - After context compaction or interruption, reconstruct state from the plan, files, and tool results. Do not ask the user to repeat information that can be recovered.
 - Finish each handoff with a clear state: `done`, `still working`, or `blocked`, plus the one next phone-doable action only when one is required.
 

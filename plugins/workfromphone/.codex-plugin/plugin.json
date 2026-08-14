@@ -1,7 +1,7 @@
 {
   "name": "workfromphone",
-  "version": "1.0.0",
-  "description": "Phone-first operating mode for completing Codex work while away from the computer.",
+  "version": "1.1.0",
+  "description": "Phone-first Codex work with compact delivery and resilient recovery from interruptions.",
   "author": {
     "name": "wayjan",
     "email": "246898204+wayjan@users.noreply.github.com",
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Work From Phone",
     "shortDescription": "Finish Codex work remotely from your phone.",
-    "longDescription": "Keep Codex tasks usable when your phone is the only interface. Codex handles workstation actions autonomously, avoids assigning desktop chores, delivers files and images through mobile-reachable channels, keeps image batches compact-safe, and preserves continuity through long sessions.",
+    "longDescription": "Keep Codex tasks usable when your phone is the only interface. Codex handles workstation actions autonomously, avoids assigning desktop chores, delivers files and images through mobile-reachable channels, keeps image batches compact-safe, and recovers safely from compaction, disconnections, timeouts, and uncertain retries.",
     "developerName": "wayjan",
     "category": "Productivity",
     "capabilities": [],

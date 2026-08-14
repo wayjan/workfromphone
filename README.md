@@ -14,7 +14,9 @@ $workfromphone
 - Files and previews are delivered through mobile-reachable chat attachments, links, or connected cloud storage.
 - Image delivery is limited to compact-safe batches of no more than two inline images per message.
 - Larger media sets use a verified cloud folder, archive, or contact sheet.
-- Long tasks preserve a concise checkpoint so work can resume after interruption or compaction.
+- Long tasks preserve a privacy-safe checkpoint so work can resume after interruption, timeout, or compaction.
+- Uncertain uploads, sends, publishes, and deployments are verified before retrying to avoid duplicates.
+- Safe checks use short bounded retries, while large deliveries use compact packages and previews to reduce latency.
 - Questions and confirmations are kept short and phone-tappable.
 
 ## Install from GitHub
