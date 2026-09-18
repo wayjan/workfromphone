@@ -14,7 +14,7 @@ Finish Codex work remotely from your phone.
 
 ## Long description
 
-Work From Phone keeps Codex tasks usable when your phone is the only interface. It tells Codex to carry out available workstation actions autonomously, avoid assigning desktop chores, deliver files and pictures through mobile-reachable chat or connected cloud storage, keep image batches compact-safe, and recover safely from long sessions, compaction, disconnections, timeouts, and uncertain retries.
+Work From Phone keeps Codex tasks usable when your phone is the only interface. It tells Codex to carry out available workstation actions autonomously, reuse project runbooks and authenticated browser state, avoid assigning desktop chores, prepare approval-gated web actions before interrupting the user, deliver files and pictures through mobile-reachable chat or connected cloud storage, keep image batches compact-safe, and recover safely from long sessions, compaction, disconnections, timeouts, and uncertain retries.
 
 ## Website and support
 

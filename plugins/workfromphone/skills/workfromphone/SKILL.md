@@ -1,6 +1,6 @@
 ---
 name: workfromphone
-description: "Phone-first operating mode for completing Codex work while the user is remote, on a phone, away from the workstation, unable to access the computer, or explicitly invokes $workfromphone. Keep the entire workflow usable from mobile chat: act autonomously on the computer, never assign desktop actions to the user, deliver files and pictures through chat or a connected cloud service such as OneDrive, keep image batches and context compact-safe, provide phone-reachable previews and links, minimize typing and decisions, and recover safely from long sessions, compaction, disconnections, timeouts, and high latency."
+description: "Phone-first operating mode for completing Codex work while the user is remote, on a phone, away from the workstation, unable to access the computer, or explicitly invokes $workfromphone. Keep the entire workflow usable from mobile chat: act autonomously on the computer, reuse durable project runbooks and authenticated browser state before asking for help, never assign desktop actions to the user, deliver phone-reachable files and previews, and recover safely from long sessions, compaction, disconnections, timeouts, and high latency."
 ---
 
 # Work From Phone
@@ -29,6 +29,35 @@ If completion truly depends on an unavailable desktop-only action, do not turn t
 5. Lead the handoff with the outcome, what is ready to tap or download, and any genuinely required phone action.
 
 Do not claim that work will continue in the background unless a real monitoring or background mechanism has been started.
+
+## Reuse project runbooks and authenticated browser state
+
+- Never store account-specific data in this skill or its bundled resources. This includes names, usernames, email addresses, account IDs, profile URLs, browser-profile names, cookies, session data, credentials, tokens, recovery codes, and private links. Keep details needed during a task in ephemeral task state; put only necessary non-secret operational context in project documentation when the user requests it, and never copy that context back into the reusable skill.
+- At the start of the task, and before retrying a previously fragile workflow, inspect the active `AGENTS.md` instruction chain and relevant project runbooks such as a README, operations note, or upload checklist. Read the applicable sections before acting instead of rediscovering a solved process through trial and error.
+- An arbitrary README is not guaranteed to load as an instruction in a future run. When the user asks Codex not to repeat a cross-session problem, preserve the detailed procedure in a project runbook and add or update the closest project-scoped `AGENTS.md` so future runs are explicitly directed to it. Keep service-, account-, and folder-specific details in that project documentation rather than making them universal skill rules.
+- Before asking the remote user to sign in again or touch the workstation, determine which available browser, profile, tab, or connector owns the authenticated session. Do not assume an in-app browser and regular Chrome share cookies, profiles, or Google sign-in state.
+- If a visible signed-in tab cannot be claimed reliably, inspect authoritative state and then try a fresh controlled tab in the same authenticated browser profile. Verify the account identity and destination before continuing.
+- Before opening a native operating-system file picker, align the automation's controlled tab with the visibly active foreground tab. A picker can attach to the foreground tab even while automation is reading another tab.
+- If direct programmatic file assignment silently clears or fails, use the native file picker through available computer-control tools. On Windows, a reliable path is to focus the File name field with `Alt+N`, enter the exact filename, and press Enter. Do not turn the picker into desktop homework for the user.
+- For OneDrive or another sync-backed destination, treat a local synced path as staging only. Do not infer the remote folder from a local `Documents` path: Windows sync roots can map to a different cloud path, including misleading nested same-name folders. Resolve the exact cloud destination in the authenticated UI or connector before uploading or retrying, record its visible parent/path and distinguishing existing contents, and verify the artifact there by filename and size. If exact-folder upload is fragile or uncertain, upload once to an explicitly authorized temporary root and use the remote Move/Copy control to the verified destination; reconcile first so an uncertain upload is not duplicated. Do not report cloud delivery from local presence or an upload toast alone, and do not delete leftover duplicates without explicit approval.
+- Treat an uncertain upload, publish, send, or submission as possibly complete. Reconcile the destination before retrying, then verify the authoritative public item and every requested cross-posted outbound link.
+- After solving a recurring browser or desktop failure, update the project runbook with only the durable invariants and verified recovery steps. Never store credentials, recovery codes, private tokens, or unnecessary personal identifiers in the runbook.
+
+## Handle approval-gated web actions from the phone
+
+For browser workflows that culminate in publishing, sending, submitting, deploying, or another externally visible action, do all reversible preparation before interrupting the user:
+
+1. Upload the already-authorized files, complete metadata and settings, select destinations, and verify the staged result.
+2. Save or confirm the platform draft and record a compact checkpoint with the draft title or ID, destination, intended final action, and any live URLs.
+3. If the browser control system requires tabs to be preserved across turns, mark the relevant tabs for handoff before asking for confirmation. Never rely only on an in-memory tab object surviving the turn boundary.
+4. Ask for action-time confirmation only when the final control is ready. Name the exact targets and public or external impact in one short yes-or-no question that is easy to answer from the phone.
+5. Group multiple equivalent final actions into one confirmation when their targets and impact are already clear, such as publishing two prepared listings or two prepared social posts. Do not bundle unrelated, destructive, financial, or differently scoped actions.
+6. After confirmation, execute immediately and do not ask again unless the target, scope, cost, audience, or other material impact changed.
+7. Verify the authoritative result: the public page, sent item, deployment, receipt, or destination link. For cross-posting, also verify that each outbound link reaches its intended target.
+
+Required approvals still apply and this skill does not expand authorization. Its purpose is to minimize phone interruptions while preserving informed consent at the exact action boundary.
+
+If a tab or browser session disappears while waiting for confirmation, reopen the platform and recover its saved draft or authoritative state. The existing confirmation remains usable only for the same exact targets and impact; otherwise ask again. Before suggesting reinstalling a browser plugin or extension, inspect its installation and profile, retry the connection up to three times, and distinguish a transient bridge failure from a missing installation. Never uninstall a working plugin as a speculative reconnection step.
 
 ## Survive disconnections and high latency
 
