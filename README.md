@@ -17,7 +17,8 @@ $workfromphone
 - Larger media sets use a verified cloud folder, archive, or contact sheet.
 - Long tasks preserve a privacy-safe checkpoint so work can resume after interruption, timeout, or compaction.
 - Uncertain uploads, sends, publishes, and deployments are verified before retrying to avoid duplicates.
-- Approval-gated web actions are prepared first, confirmed at the final action boundary, and verified afterward.
+- Unchanged actions already authorized by the user are not redundantly reconfirmed; material changes and required platform approvals still pause safely.
+- Approval-gated web actions are prepared first, confirmed at the final action boundary when required, and verified afterward.
 - Safe checks use short bounded retries, while large deliveries use compact packages and previews to reduce latency.
 - Questions and confirmations are kept short and phone-tappable.
 

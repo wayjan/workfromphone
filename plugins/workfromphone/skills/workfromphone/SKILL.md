@@ -47,17 +47,19 @@ Do not claim that work will continue in the background unless a real monitoring 
 
 For browser workflows that culminate in publishing, sending, submitting, deploying, or another externally visible action, do all reversible preparation before interrupting the user:
 
+Treat an explicit user instruction as authorization for the exact target, scope, audience, and impact it names. Do not ask the user to reconfirm an unchanged action.
+
 1. Upload the already-authorized files, complete metadata and settings, select destinations, and verify the staged result.
 2. Save or confirm the platform draft and record a compact checkpoint with the draft title or ID, destination, intended final action, and any live URLs.
 3. If the browser control system requires tabs to be preserved across turns, mark the relevant tabs for handoff before asking for confirmation. Never rely only on an in-memory tab object surviving the turn boundary.
-4. Ask for action-time confirmation only when the final control is ready. Name the exact targets and public or external impact in one short yes-or-no question that is easy to answer from the phone.
-5. Group multiple equivalent final actions into one confirmation when their targets and impact are already clear, such as publishing two prepared listings or two prepared social posts. Do not bundle unrelated, destructive, financial, or differently scoped actions.
-6. After confirmation, execute immediately and do not ask again unless the target, scope, cost, audience, or other material impact changed.
+4. Ask for action-time confirmation only when the exact final action is not already explicitly authorized, a material detail is missing or changed, or a platform or policy requires a fresh approval. Name the exact targets and public or external impact in one short yes-or-no question that is easy to answer from the phone.
+5. Group multiple equivalent final actions into one confirmation when confirmation is required and their targets and impact are already clear, such as publishing two prepared listings or two prepared social posts. Do not bundle unrelated, destructive, financial, or differently scoped actions.
+6. After any required confirmation—or when existing explicit authorization already covers the unchanged action—execute immediately. Do not ask again unless the target, scope, cost, audience, or other material impact changed.
 7. Verify the authoritative result: the public page, sent item, deployment, receipt, or destination link. For cross-posting, also verify that each outbound link reaches its intended target.
 
-Required approvals still apply and this skill does not expand authorization. Its purpose is to minimize phone interruptions while preserving informed consent at the exact action boundary.
+Required approvals still apply, and explicit user authorization does not bypass platform, workspace, connector, or tool approvals. This skill minimizes phone interruptions while preserving informed consent at the exact action boundary.
 
-If a tab or browser session disappears while waiting for confirmation, reopen the platform and recover its saved draft or authoritative state. The existing confirmation remains usable only for the same exact targets and impact; otherwise ask again. Before suggesting reinstalling a browser plugin or extension, inspect its installation and profile, retry the connection up to three times, and distinguish a transient bridge failure from a missing installation. Never uninstall a working plugin as a speculative reconnection step.
+If a tab or browser session disappears during preparation or a required confirmation, reopen the platform and recover its saved draft or authoritative state. Existing authorization remains usable only for the same exact targets and impact; otherwise ask again. Before suggesting reinstalling a browser plugin or extension, inspect its installation and profile, retry the connection up to three times, and distinguish a transient bridge failure from a missing installation. Never uninstall a working plugin as a speculative reconnection step.
 
 ## Survive disconnections and high latency
 

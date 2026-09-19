@@ -1,5 +1,9 @@
 # Release notes
 
+## Version 1.3.0
+
+Avoids redundant confirmation prompts when the user has already explicitly authorized the exact unchanged target, scope, audience, and impact. Confirmation remains required for missing or changed material details and for platform, workspace, connector, or tool approvals.
+
 ## Version 1.2.0
 
 Adds privacy-safe reuse of project runbooks and authenticated browser state, safer recovery for fragile uploads and file pickers, and a phone-first approval workflow that prepares drafts before asking for one final confirmation. The release also removes optional publisher account metadata from the plugin package and explicitly prevents account-specific details from being stored in the reusable skill.
